@@ -56,7 +56,7 @@
         }
         .nav-links a:hover { color: var(--secondary-color); }
 
-        /* Hero Section (Trang Giới thiệu) */
+        /* Hero Section */
         header {
             height: 100vh;
             display: flex;
@@ -119,11 +119,16 @@
             border-radius: 2px;
         }
 
-        /* Projects Grid (Trang Dự án) */
+        /* Projects Grid (Tùy chỉnh có thêm Link & Ảnh) */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+        }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .card {
             background: var(--white);
@@ -132,17 +137,14 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             border: 1px solid #e2e8f0;
+            height: 100%;
         }
         .card:hover { transform: translateY(-10px); }
-        .card-img {
+        .card-img-top {
+            width: 100%;
             height: 200px;
-            background-color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: bold;
-            /* Placeholder for real images */
+            object-fit: cover;
+            border-bottom: 1px solid #e2e8f0;
         }
         .card-content { padding: 1.5rem; }
         .card-title {
@@ -161,7 +163,7 @@
             font-weight: bold;
         }
 
-        /* Reflection Section (Trang Tổng kết) */
+        /* Reflection Section */
         .reflection-container {
             background: var(--white);
             padding: 3rem;
@@ -202,59 +204,71 @@
         <h2 class="section-title">Hệ Thống Bài Tập Thành Phần</h2>
         <div class="projects-grid">
             
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh Thư Mục Máy Tính]</div>
-                <div class="card-content">
-                    <h3 class="card-title">1. Quản lý Tệp & Thư mục</h3>
-                    <p class="card-desc">Thiết lập cấu trúc thư mục dạng cây logic trên hệ điều hành Windows. Đặt tên file theo chuẩn quy ước (CamelCase/Snake_case) không dấu, giúp tối ưu hóa việc quản lý mã nguồn dự án.</p>
-                    <span class="tag">File Management</span>
+            <a href=https://docs.google.com/document/d/1TKVJZI_08g3ZLOKTfDhoSdrUhY0EgTAB/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Quản lý thư mục" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">1. Quản lý Tệp & Thư mục</h3>
+                        <p class="card-desc">Thiết lập cấu trúc thư mục dạng cây logic trên hệ điều hành Windows và môi trường Ubuntu. Đặt tên file theo chuẩn quy ước giúp tối ưu hóa việc quản lý dữ liệu.</p>
+                        <span class="tag">File Management</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh Dùng Lệnh Google Search]</div>
-                <div class="card-content">
-                    <h3 class="card-title">2. Tìm kiếm Thông tin Học thuật</h3>
-                    <p class="card-desc">Áp dụng thành thạo các toán tử tìm kiếm nâng cao (site:edu.vn, filetype:pdf) và trích xuất dữ liệu khoa học siêu tốc bằng công cụ AI Elicit.</p>
-                    <span class="tag">OSINT & Elicit AI</span>
+            <a href=https://drive.google.com/file/d/1WVpqNS5Q9mdFKqQ3zUiN3-TvvZow1pxA/view?usp=sharing target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Tìm kiếm thông tin" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">2. Tìm kiếm Thông tin Học thuật</h3>
+                        <p class="card-desc">Áp dụng thành thạo các toán tử tìm kiếm nâng cao trên Google và trích xuất dữ liệu khoa học siêu tốc bằng công cụ AI Elicit.</p>
+                        <span class="tag">OSINT & Elicit AI</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh Chat GPT-4o]</div>
-                <div class="card-content">
-                    <h3 class="card-title">3. Viết Prompt Hiệu Quả</h3>
-                    <p class="card-desc">Kỹ thuật Prompt Engineering. Giao việc cho AI đóng vai chuyên gia lập dàn ý tiểu luận đạo đức IT, kết hợp cung cấp bối cảnh (Context) để tinh chỉnh kết quả đầu ra.</p>
-                    <span class="tag">Prompt Engineering</span>
+            <a href=https://docs.google.com/document/d/10u9-eE8y6ByYZuH7ooL19ViHiGVB3GRU/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="Prompt Engineering" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">3. Viết Prompt Hiệu Quả</h3>
+                        <p class="card-desc">Kỹ thuật Prompt Engineering. Giao việc cho AI đóng vai chuyên gia, kết hợp cung cấp bối cảnh (Context) để tinh chỉnh kết quả đầu ra.</p>
+                        <span class="tag">Prompt Engineering</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh Bảng Trello/Notion]</div>
-                <div class="card-content">
-                    <h3 class="card-title">4. Hợp tác Trực tuyến</h3>
-                    <p class="card-desc">Quản lý dự án nhóm theo mô hình Agile/Kanban. Phân công task và theo dõi tiến độ công việc cùng các cộng sự Nam, Trinh, Tuấn, Tiên trên không gian số.</p>
-                    <span class="tag">Teamwork & Notion</span>
+            <a href=https://docs.google.com/document/d/11N8ueYRKngd0F1l8y9anV_FbuvfYIXR-/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Hợp tác nhóm" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">4. Hợp tác Trực tuyến</h3>
+                        <p class="card-desc">Quản lý dự án nhóm cùng Nam, Trinh, Tuấn và Tiên. Phân công task, gỡ lỗi và theo dõi tiến độ công việc trên không gian số bằng Google Docs và Notion.</p>
+                        <span class="tag">Teamwork & Collaboration</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh Video Capcut/Canva]</div>
-                <div class="card-content">
-                    <h3 class="card-title">5. Sáng tạo Nội dung Số</h3>
-                    <p class="card-desc">Kết hợp sức mạnh của CapCut PC và Canva Magic Design để sản xuất Video giáo dục về "Tính đóng gói trong Java" và Infographic "Nhận diện lừa đảo mạng".</p>
-                    <span class="tag">Content Creation</span>
+            <a href=https://docs.google.com/document/d/1odMxKvovoV2U5adOyrjS78Q_KrOVuf9i/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Sáng tạo nội dung" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">5. Sáng tạo Nội dung Số</h3>
+                        <p class="card-desc">Kết hợp sức mạnh của CapCut và Canva Magic Design để sản xuất nội dung truyền thông đa phương tiện chất lượng cao (Video & Infographic).</p>
+                        <span class="tag">Content Creation</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card">
-                <div class="card-img">[Chèn Ảnh 7 Nguyên Tắc Đạo Đức]</div>
-                <div class="card-content">
-                    <h3 class="card-title">6. AI Có Trách Nhiệm</h3>
-                    <p class="card-desc">Xây dựng bộ 7 nguyên tắc cá nhân trong liêm chính học thuật. Phân biệt rõ ranh giới giữa việc dùng AI để gỡ rối code (Debug) và gian lận (Plagiarism).</p>
-                    <span class="tag">AI Ethics</span>
+            <a href=https://docs.google.com/document/d/1ZXDhVU2U75j8Wb8ZnbB_9wNoXLJbDQbK/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Đạo đức AI" class="card-img-top">
+                    <div class="card-content">
+                        <h3 class="card-title">6. AI Có Trách Nhiệm</h3>
+                        <p class="card-desc">Xây dựng bộ 7 nguyên tắc cá nhân trong liêm chính học thuật. Phân biệt rõ ranh giới giữa việc dùng AI để hỗ trợ lập trình và gian lận.</p>
+                        <span class="tag">AI Ethics</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
         </div>
     </section>
@@ -264,7 +278,7 @@
         <div class="reflection-container">
             <div class="reflection-item">
                 <h3>💡 Trải nghiệm đáng nhớ nhất</h3>
-                <p>Quá trình tối ưu hóa các dòng lệnh prompt để yêu cầu AI giải thích thuật toán, cũng như việc sử dụng AI để tự động hóa phụ đề video bài thuyết trình nhóm. Đó là khoảnh khắc tôi nhận ra AI thực sự là một người trợ lý đắc lực nếu biết cách điều khiển.</p>
+                <p>Quá trình tối ưu hóa các dòng lệnh prompt để yêu cầu AI giải thích thuật toán, cũng như việc sử dụng AI để tự động hóa kịch bản bài thuyết trình nhóm. Đó là khoảnh khắc tôi nhận ra AI thực sự là một người trợ lý đắc lực nếu biết cách điều khiển.</p>
             </div>
             <div class="reflection-item">
                 <h3>🚀 Kỹ năng đúc kết</h3>
@@ -272,7 +286,7 @@
             </div>
             <div class="reflection-item">
                 <h3>🎯 Định hướng tương lai</h3>
-                <p>Những kỹ năng số này sẽ là nền tảng vững chắc để tôi tiếp tục học sâu hơn về cấu trúc dữ liệu, thuật toán và phát triển phần mềm trong những học kỳ tới tại UET, sẵn sàng đáp ứng yêu cầu của thị trường công nghệ.</p>
+                <p>Những kỹ năng số này sẽ là nền tảng vững chắc để tôi tiếp tục học sâu hơn về cấu trúc dữ liệu, OOP (Java) và phát triển phần mềm trong những học kỳ tới tại UET, sẵn sàng đáp ứng yêu cầu của thị trường công nghệ.</p>
             </div>
         </div>
     </section>
