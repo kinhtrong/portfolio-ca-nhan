@@ -15,177 +15,69 @@
             --bg-light: #f8fafc;
             --white: #ffffff;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
 
         /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
         .logo span { color: var(--secondary-color); }
         .nav-links { list-style: none; display: flex; gap: 2rem; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--secondary-color); }
 
         /* Hero Section */
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--white);
-            padding: 0 20px;
-        }
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        header h2 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-        header p {
-            max-width: 600px;
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
-        }
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 80px 20px 40px 20px; }
+        header h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
+        header h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 2rem; font-weight: 400; }
+        
+        .intro-box { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; max-width: 800px; text-align: left; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.2); }
+        .intro-box p { margin-bottom: 1rem; color: #e2e8f0; font-size: 1.05rem; }
+        .intro-box strong { color: var(--secondary-color); }
+        
+        .btn { padding: 12px 30px; background-color: var(--secondary-color); color: var(--primary-color); text-decoration: none; border-radius: 30px; font-weight: bold; transition: transform 0.3s, box-shadow 0.3s; display: inline-block; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); cursor: pointer; }
 
         /* Section Layouts */
         section { padding: 5rem 10%; }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-        }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--secondary-color); border-radius: 2px; }
 
-        /* Projects Grid (Tùy chỉnh có thêm Link & Ảnh) */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border: 1px solid #e2e8f0;
-            height: 100%;
-        }
-        .card:hover { transform: translateY(-10px); }
-        .card-img-top {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .card-content { padding: 1.5rem; }
-        .card-title {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
+        /* Projects Grid */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; border: 1px solid #e2e8f0; cursor: pointer; height: 100%; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-img-top { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #e2e8f0; }
+        .card-content { padding: 1.5rem; flex-grow: 1; }
+        .card-title { font-size: 1.25rem; color: var(--primary-color); margin-bottom: 0.5rem; }
         .card-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #e0f2fe;
-            color: var(--accent-color);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
+        .tag { display: inline-block; padding: 4px 12px; background: #e0f2fe; color: var(--accent-color); border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
 
-        /* Reflection Section */
-        .reflection-container {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        /* MODAL POPUP */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-content { background-color: #fff; margin: 2% auto; padding: 2rem; border-radius: 15px; width: 90%; max-width: 1000px; max-height: 90vh; overflow-y: auto; position: relative; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-btn { position: absolute; top: 15px; right: 25px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
+        .close-btn:hover { color: #e11d48; }
+        .modal-header { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        .modal-header h2 { color: var(--primary-color); }
+        .modal-body p { margin-bottom: 10px; }
+        .modal-body strong { color: var(--accent-color); }
+        .iframe-container { width: 100%; height: 65vh; border: 2px dashed #cbd5e1; border-radius: 10px; margin-top: 1.5rem; overflow: hidden; background: #f8fafc; display: flex; align-items: center; justify-content: center; }
+        .iframe-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* Reflection */
+        .reflection-container { background: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .reflection-item { margin-bottom: 2rem; }
         .reflection-item h3 { color: var(--accent-color); margin-bottom: 0.5rem; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--primary-color);
-            color: var(--white);
-        }
+        footer { text-align: center; padding: 2rem; background: var(--primary-color); color: var(--white); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">LHT<span>.Portfolio</span></div>
+        <div class="logo">Portfolio</div>
         <ul class="nav-links">
             <li><a href="#home">Giới thiệu</a></li>
             <li><a href="#projects">Dự án</a></li>
@@ -196,7 +88,13 @@
     <header id="home">
         <h1>Lê Hữu Trọng</h1>
         <h2>Sinh viên Công nghệ Thông tin - UET</h2>
-        <p>Portfolio này không chỉ là bản tổng hợp môn Nhập môn Công nghệ số, mà còn là một kho lưu trữ minh chứng cho năng lực ứng dụng Trí tuệ Nhân tạo và kỹ năng số của một kỹ sư IT tương lai.</p>
+        
+        <div class="intro-box">
+            <p><strong>👨‍💻 Về bản thân:</strong> Mình là một sinh viên đam mê lập trình, đặc biệt yêu thích ngôn ngữ Python và thuật toán Java. Sau những giờ code căng thẳng, mình thường giải trí bằng các tựa game như Minecraft, Sekiro hoặc tìm hiểu về tối ưu hóa phần cứng, hiệu năng máy tính.</p>
+            <p><strong>🎯 Định hướng phát triển:</strong> Trở thành một Kỹ sư Phần mềm/AI toàn diện. Mục tiêu của mình là không chỉ viết ra những dòng code sạch (clean code) mà còn phải biết ứng dụng Trí tuệ Nhân tạo để giải quyết các bài toán thực tế.</p>
+            <p><strong>📁 Mục tiêu của Portfolio này:</strong> Đây là không gian số để mình hệ thống hóa lại toàn bộ kiến thức môn Nhập môn Công nghệ số. Nó vừa là minh chứng cho sự trưởng thành về kỹ năng số của bản thân, vừa là một hồ sơ năng lực trực quan để lưu trữ và chia sẻ dễ dàng.</p>
+        </div>
+
         <a href="#projects" class="btn">Khám Phá Các Dự Án</a>
     </header>
 
@@ -204,71 +102,59 @@
         <h2 class="section-title">Hệ Thống Bài Tập Thành Phần</h2>
         <div class="projects-grid">
             
-            <a href=https://docs.google.com/document/d/1TKVJZI_08g3ZLOKTfDhoSdrUhY0EgTAB/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Quản lý thư mục" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">1. Quản lý Tệp & Thư mục</h3>
-                        <p class="card-desc">Thiết lập cấu trúc thư mục dạng cây logic trên hệ điều hành Windows và môi trường Ubuntu. Đặt tên file theo chuẩn quy ước giúp tối ưu hóa việc quản lý dữ liệu.</p>
-                        <span class="tag">File Management</span>
-                    </div>
+            <div class="card" onclick="openModal('modal1')">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Quản lý thư mục" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">1. Quản lý Tệp & Thư mục</h3>
+                    <p class="card-desc">Thiết lập cấu trúc thư mục dạng cây logic trên hệ điều hành Windows và môi trường Ubuntu.</p>
+                    <span class="tag">File Management</span>
                 </div>
-            </a>
+            </div>
 
-            <a href=https://drive.google.com/file/d/1WVpqNS5Q9mdFKqQ3zUiN3-TvvZow1pxA/view?usp=sharing target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Tìm kiếm thông tin" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">2. Tìm kiếm Thông tin Học thuật</h3>
-                        <p class="card-desc">Áp dụng thành thạo các toán tử tìm kiếm nâng cao trên Google và trích xuất dữ liệu khoa học siêu tốc bằng công cụ AI Elicit.</p>
-                        <span class="tag">OSINT & Elicit AI</span>
-                    </div>
+            <div class="card" onclick="openModal('modal2')">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Tìm kiếm thông tin" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">2. Tìm kiếm Thông tin Học thuật</h3>
+                    <p class="card-desc">Áp dụng thành thạo các toán tử tìm kiếm nâng cao trên Google và trích xuất dữ liệu bằng Elicit.</p>
+                    <span class="tag">OSINT & Elicit AI</span>
                 </div>
-            </a>
+            </div>
 
-            <a href=https://docs.google.com/document/d/10u9-eE8y6ByYZuH7ooL19ViHiGVB3GRU/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="Prompt Engineering" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">3. Viết Prompt Hiệu Quả</h3>
-                        <p class="card-desc">Kỹ thuật Prompt Engineering. Giao việc cho AI đóng vai chuyên gia, kết hợp cung cấp bối cảnh (Context) để tinh chỉnh kết quả đầu ra.</p>
-                        <span class="tag">Prompt Engineering</span>
-                    </div>
+            <div class="card" onclick="openModal('modal3')">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="Prompt Engineering" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">3. Viết Prompt Hiệu Quả</h3>
+                    <p class="card-desc">Kỹ thuật Prompt Engineering. Giao việc cho AI đóng vai chuyên gia và tinh chỉnh kết quả đầu ra.</p>
+                    <span class="tag">Prompt Engineering</span>
                 </div>
-            </a>
+            </div>
 
-            <a href=https://docs.google.com/document/d/11N8ueYRKngd0F1l8y9anV_FbuvfYIXR-/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Hợp tác nhóm" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">4. Hợp tác Trực tuyến</h3>
-                        <p class="card-desc">Quản lý dự án nhóm cùng Nam, Trinh, Tuấn và Tiên. Phân công task, gỡ lỗi và theo dõi tiến độ công việc trên không gian số bằng Google Docs và Notion.</p>
-                        <span class="tag">Teamwork & Collaboration</span>
-                    </div>
+            <div class="card" onclick="openModal('modal4')">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Hợp tác nhóm" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">4. Hợp tác Trực tuyến</h3>
+                    <p class="card-desc">Quản lý dự án nhóm, phân công task và theo dõi tiến độ công việc trên không gian số.</p>
+                    <span class="tag">Teamwork & Collaboration</span>
                 </div>
-            </a>
+            </div>
 
-            <a href=https://docs.google.com/document/d/1odMxKvovoV2U5adOyrjS78Q_KrOVuf9i/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Sáng tạo nội dung" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">5. Sáng tạo Nội dung Số</h3>
-                        <p class="card-desc">Kết hợp sức mạnh của CapCut và Canva Magic Design để sản xuất nội dung truyền thông đa phương tiện chất lượng cao (Video & Infographic).</p>
-                        <span class="tag">Content Creation</span>
-                    </div>
+            <div class="card" onclick="openModal('modal5')">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Sáng tạo nội dung" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">5. Sáng tạo Nội dung Số</h3>
+                    <p class="card-desc">Kết hợp sức mạnh của CapCut và Canva Magic Design để sản xuất nội dung truyền thông.</p>
+                    <span class="tag">Content Creation</span>
                 </div>
-            </a>
+            </div>
 
-            <a href=https://docs.google.com/document/d/1ZXDhVU2U75j8Wb8ZnbB_9wNoXLJbDQbK/edit?usp=sharing&ouid=100823705377029962257&rtpof=true&sd=true target="_blank" class="card-link">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Đạo đức AI" class="card-img-top">
-                    <div class="card-content">
-                        <h3 class="card-title">6. AI Có Trách Nhiệm</h3>
-                        <p class="card-desc">Xây dựng bộ 7 nguyên tắc cá nhân trong liêm chính học thuật. Phân biệt rõ ranh giới giữa việc dùng AI để hỗ trợ lập trình và gian lận.</p>
-                        <span class="tag">AI Ethics</span>
-                    </div>
+            <div class="card" onclick="openModal('modal6')">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Đạo đức AI" class="card-img-top">
+                <div class="card-content">
+                    <h3 class="card-title">6. AI Có Trách Nhiệm</h3>
+                    <p class="card-desc">Xây dựng bộ 7 nguyên tắc cá nhân trong liêm chính học thuật. Phân biệt rõ việc hỗ trợ và gian lận.</p>
+                    <span class="tag">AI Ethics</span>
                 </div>
-            </a>
+            </div>
 
         </div>
     </section>
@@ -278,7 +164,7 @@
         <div class="reflection-container">
             <div class="reflection-item">
                 <h3>💡 Trải nghiệm đáng nhớ nhất</h3>
-                <p>Quá trình tối ưu hóa các dòng lệnh prompt để yêu cầu AI giải thích thuật toán, cũng như việc sử dụng AI để tự động hóa kịch bản bài thuyết trình nhóm. Đó là khoảnh khắc tôi nhận ra AI thực sự là một người trợ lý đắc lực nếu biết cách điều khiển.</p>
+                <p>Quá trình tối ưu hóa các dòng lệnh prompt để yêu cầu AI giải thích thuật toán, cũng như việc sử dụng AI để tự động hóa kịch bản bài thuyết trình nhóm. Đó là khoảnh khắc tôi nhận ra AI thực sự là một trợ lý đắc lực nếu biết cách điều khiển.</p>
             </div>
             <div class="reflection-item">
                 <h3>🚀 Kỹ năng đúc kết</h3>
@@ -286,25 +172,122 @@
             </div>
             <div class="reflection-item">
                 <h3>🎯 Định hướng tương lai</h3>
-                <p>Những kỹ năng số này sẽ là nền tảng vững chắc để tôi tiếp tục học sâu hơn về cấu trúc dữ liệu, OOP (Java) và phát triển phần mềm trong những học kỳ tới tại UET, sẵn sàng đáp ứng yêu cầu của thị trường công nghệ.</p>
+                <p>Những kỹ năng số này sẽ là nền tảng vững chắc để tôi tiếp tục học sâu hơn về cấu trúc dữ liệu, thuật toán OOP (Java) và phát triển phần mềm trong những học kỳ tới tại UET, sẵn sàng đáp ứng yêu cầu của thị trường công nghệ.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Lê Hữu Trọng. All rights reserved.</p>
-        <p>Đại học Công nghệ - ĐHQGHN (UET)</p>
+        <p>&copy; 2026 Lê Hữu Trọng. All rights reserved. | Đại học Công nghệ - ĐHQGHN (UET)</p>
     </footer>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 1: Quản lý Tệp & Thư mục</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/document/d/1TKVJZI_08g3ZLOKTfDhoSdrUhY0EgTAB/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 2: Tìm kiếm Thông tin Học thuật</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://drive.google.com/file/d/1WVpqNS5Q9mdFKqQ3zUiN3-TvvZow1pxA/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 3: Viết Prompt Hiệu Quả</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/document/d/10u9-eE8y6ByYZuH7ooL19ViHiGVB3GRU/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 4: Hợp tác Trực tuyến</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/document/d/11N8ueYRKngd0F1l8y9anV_FbuvfYIXR-/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal5')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 5: Sáng tạo Nội dung Số</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/document/d/1odMxKvovoV2U5adOyrjS78Q_KrOVuf9i/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
+            <div class="modal-header">
+                <h2>Bài 6: AI Có Trách Nhiệm</h2>
+            </div>
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/document/d/1ZXDhVU2U75j8Wb8ZnbB_9wNoXLJbDQbK/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-            }
+            if (window.scrollY > 50) { nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)'; } 
+            else { nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; }
         });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
     </script>
 </body>
 </html>
