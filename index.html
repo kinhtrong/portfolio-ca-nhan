@@ -26,10 +26,31 @@
         .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--secondary-color); }
 
-        /* Hero Section */
-        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 80px 20px 40px 20px; }
+        /* Hero Section (Có Avatar và Chữ chạy) */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 100px 20px 40px 20px; }
+        
+        /* Chỉnh sửa khung Ảnh cá nhân */
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+            overflow: hidden;
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         header h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
-        header h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 2rem; font-weight: 400; }
+        header h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 2rem; font-weight: 400; height: 35px; }
+        
+        /* Hiệu ứng con trỏ chuột nhấp nháy */
+        .cursor { display: inline-block; width: 3px; background-color: var(--secondary-color); animation: blink 1s infinite; margin-left: 2px; height: 1.2rem; vertical-align: middle; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         
         .intro-box { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; max-width: 800px; text-align: left; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.2); }
         .intro-box p { margin-bottom: 1rem; color: #e2e8f0; font-size: 1.05rem; }
@@ -66,10 +87,14 @@
         .iframe-container { width: 100%; height: 65vh; border: 2px dashed #cbd5e1; border-radius: 10px; margin-top: 1.5rem; overflow: hidden; background: #f8fafc; display: flex; align-items: center; justify-content: center; }
         .iframe-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* Reflection */
-        .reflection-container { background: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* Reflection & Contact */
+        .reflection-container { background: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 4rem; }
         .reflection-item { margin-bottom: 2rem; }
         .reflection-item h3 { color: var(--accent-color); margin-bottom: 0.5rem; }
+        
+        .contact-container { text-align: center; }
+        .contact-btn { display: inline-block; padding: 10px 25px; margin: 0 10px; border: 2px solid var(--primary-color); color: var(--primary-color); text-decoration: none; border-radius: 30px; font-weight: bold; transition: all 0.3s; }
+        .contact-btn:hover { background-color: var(--primary-color); color: var(--white); }
 
         footer { text-align: center; padding: 2rem; background: var(--primary-color); color: var(--white); }
     </style>
@@ -86,8 +111,13 @@
     </nav>
 
     <header id="home">
+        
+        <div class="profile-img-container">
+            <img src=<img src="anh-cua-trong.jpg" alt="Lê Hữu Trọng">
+        </div>
+
         <h1>Lê Hữu Trọng</h1>
-        <h2>Sinh viên Công nghệ Thông tin - UET</h2>
+        <h2><span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
         
         <div class="intro-box">
             <p><strong>👨‍💻 Về bản thân:</strong> Mình là một sinh viên đam mê lập trình, đặc biệt yêu thích ngôn ngữ Python và thuật toán Java. Sau những giờ code căng thẳng, mình thường giải trí bằng các tựa game như Minecraft, Sekiro hoặc tìm hiểu về tối ưu hóa phần cứng, hiệu năng máy tính.</p>
@@ -175,6 +205,12 @@
                 <p>Những kỹ năng số này sẽ là nền tảng vững chắc để tôi tiếp tục học sâu hơn về cấu trúc dữ liệu, thuật toán OOP (Java) và phát triển phần mềm trong những học kỳ tới tại UET, sẵn sàng đáp ứng yêu cầu của thị trường công nghệ.</p>
             </div>
         </div>
+
+        <h2 class="section-title" style="margin-bottom: 2rem;">Kết Nối Với Mình</h2>
+        <div class="contact-container">
+            <a href="mailto:thuthomail@vnu.edu.vn" class="contact-btn">✉️ Gửi Email</a>
+            <a href="https://github.com/kinhtrong" target="_blank" class="contact-btn">🐙 GitHub Profile</a>
+        </div>
     </section>
 
     <footer>
@@ -184,104 +220,103 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 1: Quản lý Tệp & Thư mục</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 1: Quản lý Tệp & Thư mục</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://docs.google.com/document/d/1TKVJZI_08g3ZLOKTfDhoSdrUhY0EgTAB/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://docs.google.com/document/d/1TKVJZI_08g3ZLOKTfDhoSdrUhY0EgTAB/preview"></iframe></div>
             </div>
         </div>
     </div>
-
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 2: Tìm kiếm Thông tin Học thuật</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 2: Tìm kiếm Thông tin Học thuật</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://drive.google.com/file/d/1WVpqNS5Q9mdFKqQ3zUiN3-TvvZow1pxA/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://drive.google.com/file/d/1WVpqNS5Q9mdFKqQ3zUiN3-TvvZow1pxA/preview"></iframe></div>
             </div>
         </div>
     </div>
-
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 3: Viết Prompt Hiệu Quả</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 3: Viết Prompt Hiệu Quả</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://docs.google.com/document/d/10u9-eE8y6ByYZuH7ooL19ViHiGVB3GRU/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://docs.google.com/document/d/10u9-eE8y6ByYZuH7ooL19ViHiGVB3GRU/preview"></iframe></div>
             </div>
         </div>
     </div>
-
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 4: Hợp tác Trực tuyến</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 4: Hợp tác Trực tuyến</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://docs.google.com/document/d/11N8ueYRKngd0F1l8y9anV_FbuvfYIXR-/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://docs.google.com/document/d/11N8ueYRKngd0F1l8y9anV_FbuvfYIXR-/preview"></iframe></div>
             </div>
         </div>
     </div>
-
     <div id="modal5" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal5')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 5: Sáng tạo Nội dung Số</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 5: Sáng tạo Nội dung Số</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://docs.google.com/document/d/1odMxKvovoV2U5adOyrjS78Q_KrOVuf9i/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://docs.google.com/document/d/1odMxKvovoV2U5adOyrjS78Q_KrOVuf9i/preview"></iframe></div>
             </div>
         </div>
     </div>
-
     <div id="modal6" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
-            <div class="modal-header">
-                <h2>Bài 6: AI Có Trách Nhiệm</h2>
-            </div>
+            <div class="modal-header"><h2>Bài 6: AI Có Trách Nhiệm</h2></div>
             <div class="modal-body">
-                <div class="iframe-container">
-                    <iframe src="https://docs.google.com/document/d/1ZXDhVU2U75j8Wb8ZnbB_9wNoXLJbDQbK/preview"></iframe>
-                </div>
+                <div class="iframe-container"><iframe src="https://docs.google.com/document/d/1ZXDhVU2U75j8Wb8ZnbB_9wNoXLJbDQbK/preview"></iframe></div>
             </div>
         </div>
     </div>
 
     <script>
+        // 1. Hiệu ứng thanh điều hướng
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) { nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)'; } 
             else { nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)'; }
         });
 
+        // 2. Kịch bản chữ chạy (Typewriter Effect)
+        const textArray = ["Sinh viên Công nghệ Thông tin - UET", "Đam mê Lập trình Python & Java", "Tương lai Kỹ sư Phần mềm AI"];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typedTextSpan = document.querySelector(".typed-text");
+        
+        function type() {
+            if (charIndex < textArray[textIndex].length) {
+                typedTextSpan.textContent += textArray[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = textArray[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                textIndex++;
+                if (textIndex >= textArray.length) textIndex = 0;
+                setTimeout(type, 500);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() { setTimeout(type, 1000); });
+
+        // 3. Đóng/Mở Popup
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
             document.body.style.overflow = "hidden";
         }
-
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
             document.body.style.overflow = "auto";
         }
-
         window.onclick = function(event) {
             if (event.target.className === "modal") {
                 event.target.style.display = "none";
